@@ -19,10 +19,10 @@ const UpdateForm = (props) => {
         setFormTitle(title)
       }
 
-      const handleSubmit = (e,formAuthor,formTitle,id)=>{
-        console.log(formAuthor,formTitle,id)
-        handleUpdate(formAuthor,formTitle,id)
-      }
+      // const handleSubmit = (e,formAuthor,formTitle,id)=>{
+      //   console.log(formAuthor,formTitle,id)
+      //   handleUpdate(formAuthor,formTitle,id)
+      // }
 
 
 return (

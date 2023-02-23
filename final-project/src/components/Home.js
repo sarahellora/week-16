@@ -30,8 +30,8 @@ const Home = () => {
        });
   
       } 
-      const handleUpdate = async(e,author,title,id) => {
-        await axios.put(`https://63f4610d2213ed989c416cd7.mockapi.io/users/${id}`,{title:title,author:author}).then((response) => {
+      const handleUpdate = (e,author,title,id) => {
+         axios.put(`https://63f4610d2213ed989c416cd7.mockapi.io/users/${id}`,{title:title,author:author}).then((response) => {
           setInitialData([response.data, ...initialData]);
        });
       }
