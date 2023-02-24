@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import Form from "react-bootstrap/Form";
 import UpdateForm from "./UpdateForm";
 
 const BookList = (props) => {
@@ -14,17 +13,6 @@ const BookList = (props) => {
     setShowForm,
     showForm,
   } = props;
-  const [formTitle, setFormTitle] = useState(title);
-  const [formAuthor, setFormAuthor] = useState(author);
-
-  const handleAuthor = (e) => {
-    const author = e.target.value;
-    setFormAuthor(author);
-  };
-  const handleTitle = (e) => {
-    const title = e.target.value;
-    setFormTitle(title);
-  };
 
   return (
     <div className="bookContainer">

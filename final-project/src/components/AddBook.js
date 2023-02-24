@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
@@ -22,7 +22,7 @@ const AddBook = (props) => {
     <>
       <Form onSubmit={(e) => handleAdd(e, formAuthor, formTitle)}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-          <Form.Label>Book Author</Form.Label>
+          <Form.Label>Book Title</Form.Label>
           <Form.Control
             as="textarea"
             value={formTitle}
@@ -31,7 +31,7 @@ const AddBook = (props) => {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-          <Form.Label>Book Title</Form.Label>
+          <Form.Label>Book Author</Form.Label>
           <Form.Control
             as="textarea"
             value={formAuthor}

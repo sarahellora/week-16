@@ -1,5 +1,10 @@
 import React from 'react';
 import Button from "react-bootstrap/Button";
+import { FaArrowDown } from 'react-icons/fa';
+import ToolTip from './ToolTip';
+
+
+
 
 
 const ScrollButton = (props) => {
@@ -13,7 +18,16 @@ const ScrollButton = (props) => {
     });
   }
 
-  return <Button type="button" varian="warning" onClick={handleScroll}> 
-  </Button>;
+  return( 
+    <>
+    <ToolTip placement="left" message="Scroll To the Bottom">
+
+            <Button type="button" varian="warning" onClick={handleScroll}> 
+                <FaArrowDown/>
+            </Button>
+            </ToolTip>
+
+    </>
+  )
 }
   export default ScrollButton
