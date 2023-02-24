@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-const UpdateForm = (props) => {
-  const { id, handleUpdate, title, author } = props;
+const AddBook = (props) => {
+  const { title, author, handleAdd } = props;
 
   const [formTitle, setFormTitle] = useState(title);
   const [formAuthor, setFormAuthor] = useState(author);
+  
 
   const handleAuthor = (e) => {
     const author = e.target.value;
@@ -19,7 +20,7 @@ const UpdateForm = (props) => {
 
   return (
     <>
-      <Form onSubmit={(e) => handleUpdate(e, formAuthor, formTitle, id)}>
+      <Form onSubmit={(e) => handleAdd(e, formAuthor, formTitle)}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label>Book Author</Form.Label>
           <Form.Control
@@ -45,4 +46,4 @@ const UpdateForm = (props) => {
     </>
   );
 };
-export default UpdateForm;
+export default AddBook;

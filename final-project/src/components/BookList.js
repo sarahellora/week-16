@@ -27,7 +27,7 @@ const BookList = (props) => {
   };
 
   return (
-    <div>
+    <div className="bookContainer">
       <Card style={{ width: "18rem" }}>
         <Card.Img
           variant="top"
