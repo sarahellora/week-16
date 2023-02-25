@@ -4,10 +4,10 @@ import Form from "react-bootstrap/Form";
 
 const UpdateForm = (props) => {
   const { id, handleUpdate, title, author } = props;
-
+//you can set state in function components so I used this for the form 
   const [formTitle, setFormTitle] = useState(title);
   const [formAuthor, setFormAuthor] = useState(author);
-
+//creating  functions to handle form value
   const handleAuthor = (e) => {
     const author = e.target.value;
     setFormAuthor(author);
@@ -19,6 +19,7 @@ const UpdateForm = (props) => {
 
   return (
     <>
+    {/* passing the form state to handle update as arguments */}
       <Form onSubmit={(e) => handleUpdate(e, formAuthor, formTitle, id)}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label>Book Author</Form.Label>

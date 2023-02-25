@@ -10,34 +10,42 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
-
-  const [initialData, setInitialData] = useState();
+//Using useState to set the state of the app
+  const [initialData, setInitialData] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const history = useHistory();
 
-
+//Creating a useEffect to set the initialData coming in from the get request.
+//UseEffect will fire automatically after rending. Setting an empty depency array will set it to fire only once
+// I am setting the state at the top of the app the initial data will need to be passed as props to each component
   useEffect(() => {
+    //sending get request
     axios
       .get("https://63f4610d2213ed989c416cd7.mockapi.io/users")
       .then((response) => {
+        //setting set state to the response data
         setInitialData(response.data);
       });
   }, []);
 
+  
+//Creating a function to handle delete request
   function handleDelete(id) {
-
     if(window.confirm('Are you sure you want to delete')){
+      //delete request will only fire if the user check ok and value is true
     axios
+          //passing the id and using a template literal to add to the string 
       .delete(`https://63f4610d2213ed989c416cd7.mockapi.io/users/${id}`)
       .then(() =>
         setInitialData(
-          initialData.filter((post) => {
-            return post.id !== id;
+          initialData.filter((book) => {
+            //updating state to return everything except the deleted id
+            return book.id !== id;
           })
         )
       );
   }}
-
+//created a function to handle the add request
   function handleAdd(e, author, title) {
     axios
       .post("https://63f4610d2213ed989c416cd7.mockapi.io/users", {
@@ -45,19 +53,26 @@ function App() {
         author: author,
       })
       .then((response) => {
+        //setting state to the response plus the initial data
         setInitialData([response.data, ...initialData]);
       });
+      //alerting that adding was successful and returing to the home page
     alert('Book Added')
     history.replace('/');
   }
+  //created a function to handle the update request
   const handleUpdate = (e, author, title, id) => {
     e.preventDefault();
     axios
+          //passing the id and using a template literal to add to the string 
       .put(`https://63f4610d2213ed989c416cd7.mockapi.io/users/${id}`, {
         title: title,
         author: author,
       })
       .then((response) => {
+        //setting the state to return the everything but the updated item 
+        //then adding the response to that array and updating state
+        //closing the form 
         const filterArray = initialData.filter((post) => {
           return post.id !== id;
         });
@@ -65,6 +80,8 @@ function App() {
         setShowForm(false);
       });
   };
+
+//wrapping all components of the app in the router 
   return (
     <Router>
       <div className="App">
@@ -80,15 +97,6 @@ function App() {
             <Route path="*">
               <NotFound />
             </Route>
-            {/* <Route path="/create">
-              <Create />
-            </Route>
-            <Route path="/blogs/:id">
-              <BlogDetails />
-            </Route>
-            <Route path="*">
-              <NotFound />
-            </Route> */}
           </Switch>
         </div>
       </div>

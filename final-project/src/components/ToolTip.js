@@ -3,6 +3,7 @@ import Tooltip from "react-bootstrap/Tooltip";
 
 const ToolTip = (props) => {
   const { message, placement, children } = props;
+  //children is a built-in prop so I used this to create a wrapper for the tool tip
   return (
     <>
       <OverlayTrigger

@@ -36,6 +36,7 @@
     transform: rotate(360deg);
   }
 }
+/* using flexbox to center the book list */
 .bookContainer{
   display: flex;
   justify-content: center;

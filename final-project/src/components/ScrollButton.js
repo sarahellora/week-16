@@ -8,8 +8,7 @@ import ToolTip from './ToolTip';
 
 
 const ScrollButton = (props) => {
-
-
+//created a function to scroll to the end 
   function handleScroll() {
     window.scroll({
       top: document.body.offsetHeight,

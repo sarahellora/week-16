@@ -4,11 +4,11 @@ import Form from "react-bootstrap/Form";
 
 const AddBook = (props) => {
   const { title, author, handleAdd } = props;
-
+//you can set state in function components so I used this for the form 
   const [formTitle, setFormTitle] = useState(title);
   const [formAuthor, setFormAuthor] = useState(author);
   
-
+//create functions to handle form data and update state
   const handleAuthor = (e) => {
     const author = e.target.value;
     setFormAuthor(author);
@@ -20,6 +20,7 @@ const AddBook = (props) => {
 
   return (
     <>
+    {/* calling the handle add function and passing the form state as arguments on submit */}
       <Form onSubmit={(e) => handleAdd(e, formAuthor, formTitle)}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label>Book Title</Form.Label>

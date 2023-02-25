@@ -15,6 +15,7 @@ const BookList = (props) => {
   } = props;
 
   return (
+    // created a container to center the book list
     <div className="bookContainer">
       <Card style={{ width: "18rem" }}>
         <Card.Img
@@ -24,10 +25,13 @@ const BookList = (props) => {
         <Card.Body>
           <Card.Title>{title}</Card.Title>
           <Card.Text>{author}</Card.Text>
+          {/* added event listener to trigger handle delete the id is being passed */}
           <Button variant="danger" onClick={() => handleDelete(id)}>
             Delete
           </Button>{" "}
+          {/* adding the onClick event listner to set state to show form  */}
           <Button onClick={() => setShowForm(true)}>Update</Button>
+          {/* adding conditional rendering to show/hide the update form */}
           {showForm && (
             <UpdateForm
               id={id}
